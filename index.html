@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIL System Clue Board Game</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- Tone.js added for unified audio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>WHO CAN FIX THE DIRTY TOWN?</h1>
+    </header>
+
+    <div class="sentence-builder">
+        <div class="sentence-text">
+            <span class="guess-label">🗣️ This Try:</span>
+            <span id="sentence-display">A _____ uses a _____ to _____. _____</span>
+        </div>
+        
+        <div class="action-row">
+            <button class="go-btn" id="go-btn-start">GO</button>
+            <button class="submit-btn" onclick="testSystem()">TRY SOLUTION</button>
+        </div>
+    </div>
+
+    <div id="feedback-box" class="feedback-panel"></div>
+
+    <div class="matrix-grid">
+        <div class="column-block">
+            <div class="column-header">1. WORKERS (WHO)</div>
+            <button class="card" onclick="selectCard('worker', 'Sweeper', this)">👷 sweeper</button>
+            <button class="card" onclick="selectCard('worker', 'Mopper', this)">👷 mopper</button>
+            <button class="card" onclick="selectCard('worker', 'Cleaner', this)">👷 cleaner</button>
+            <button class="card" onclick="selectCard('worker', 'Firefighter', this)">👷 firefighter</button>
+        </div>
+
+        <div class="column-block">
+            <div class="column-header">2. TOOLS / RESOURCES</div>
+            <button class="card" onclick="selectCard('tool', 'Broom', this)">🔧 broom</button>
+            <button class="card" onclick="selectCard('tool', 'Mop', this)">🔧 mop</button>
+            <button class="card" onclick="selectCard('tool', 'Wand', this)">🔧 wand</button>
+            <button class="card" onclick="selectCard('tool', 'Fire Station', this)">🏢 fire station</button>
+        </div>
+
+        <div class="column-block">
+            <div class="column-header">3. DO WHAT</div>
+            <button class="card" onclick="selectCard('action', 'Clean the floor', this)">⚡ clean the floor</button>
+            <button class="card" onclick="selectCard('action', 'Clean the window', this)">⚡ clean the window</button>
+            <button class="card" onclick="selectCard('action', 'Cast a spell', this)">⚡ cast a spell</button>
+            <button class="card" onclick="selectCard('action', 'Fight fire', this)">⚡ fight fire</button>
+        </div>
+
+        <div class="column-block">
+            <div class="column-header">4. DOES IT WORK?</div>
+            <button class="card" onclick="selectCard('status', 'It works!', this)">📢 It works!</button>
+            <button class="card" onclick="selectCard('status', 'It is fixed!', this)">📢 It is fixed!</button>
+            <button class="card" onclick="selectCard('status', 'Good solution.', this)">📢 Good solution.</button>
+            <button class="card" onclick="selectCard('status', 'Bad solution.', this)">📢 Bad solution.</button>
+        </div>
+    </div>
+
+    <div class="log-container">
+        <div class="log-header">
+            <span>📋 Team Guess History Log:</span>
+        </div>
+        <div id="log-list" class="log-list"></div>
+    </div>
+
+    <div style="text-align: right; margin-bottom: 20px;">
+        <button class="reset-btn" onclick="resetGameBoard()">RESET GAME</button>
+    </div>
+
+    <!-- Teacher & Player Resources -->
+    <div class="resource-panel">
+        <div style="width: 100%; text-align: center; color: #0055A5; font-weight: bold; margin-bottom: 5px;">📥 DOWNLOADABLE RESOURCES:</div>
+        <a href="Point of game.docx" download class="resource-btn resource-goal">🎯 Point of the Game</a>
+        <a href="clue task play.docx" download class="resource-btn resource-teacher">📋 Teacher Lesson Plan</a>
+        <a href="clue task sheet.xlsx" download class="resource-btn resource-teacher">📝 Team Elimination Sheet</a>
+    </div>
+
+    <footer>
+        <span>SLICK TIME PRODUCTIONS • STP</span>
+        <span>CLASS SYSTEM MODULE • V4.9</span>
+    </footer>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
